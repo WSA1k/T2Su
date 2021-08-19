@@ -1,0 +1,77 @@
+﻿@model IEnumerable<T2Su.Models.Registro>
+
+@{
+    ViewData["Title"] = "Crud de Contêiner e Movimentações";
+}
+
+<h1>Crud de Contêiner e Movimentações</h1>
+
+<p>
+    <a asp-action="Create">Criar Novo Relatorio.</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodigodeContainer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Escolha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cadastro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipomovi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataDeFim)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigodeContainer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Escolha.Tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cadastro.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cate.Categoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipomovi.Tipodemovimentação)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataDeFim)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
